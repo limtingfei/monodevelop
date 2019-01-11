@@ -40,7 +40,6 @@ namespace MonoDevelop.DesignerSupport.Toolbox
 	{
 		static string category = MonoDevelop.Core.GettextCatalog.GetString ("Text Snippets");
 
-
 		public System.Collections.Generic.IEnumerable<ItemToolboxNode> GetDynamicItems (IToolboxConsumer consumer)
 		{
 			var content = consumer as ViewContent;
@@ -60,6 +59,8 @@ namespace MonoDevelop.DesignerSupport.Toolbox
 		}
 
 		public bool DeleteDynamicItem (ItemToolboxNode node) => false;
+
+		public bool CanDeleteDynamicItem (ItemToolboxNode node) => false;
 
 		public event EventHandler ItemsChanged {
 			add { CodeTemplateService.TemplatesChanged += value; }

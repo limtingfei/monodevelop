@@ -56,6 +56,8 @@ namespace MonoDevelop.DesignerSupport.Toolbox
 
 		bool DeleteDynamicItem (ItemToolboxNode node);
 
+		bool CanDeleteDynamicItem (ItemToolboxNode node);
+
 		event EventHandler ItemsChanged;
 	}
 }

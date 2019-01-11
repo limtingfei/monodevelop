@@ -535,7 +535,22 @@ namespace MonoDevelop.DesignerSupport
 			//we assume permitted, so only return false when blocked by a filter
 			return true;
 		}
-		
+
+		internal bool CanRemoveUserItem (ItemToolboxNode node)
+		{
+			if (Configuration.ItemList.Contains (node)) {
+				return true;
+			} else {
+				//we need check in the dynamic providers
+				foreach (var prov in dynamicProviders) {
+					if (prov.CanDeleteDynamicItem (node)) {
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+
 		//evaluate a filter attribute against a list, and check whether permitted
 		private bool FilterPermitted (ItemToolboxNode node, ToolboxItemFilterAttribute desFa, 
 		    ICollection<ToolboxItemFilterAttribute> filterAgainst, IToolboxConsumer consumer)

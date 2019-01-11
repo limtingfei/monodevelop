@@ -3395,6 +3395,8 @@ namespace MonoDevelop.SourceEditor
 
 		public bool DeleteDynamicItem (ItemToolboxNode node) => ClipboardRingService.DeleteItem (node);
 
+		public bool CanDeleteDynamicItem (ItemToolboxNode node) => ClipboardRingService.GetToolboxItems ().Contains (node);
+
 		public bool HasFocus {
 			get {
 				return this.TextEditor.HasFocus;
