@@ -82,7 +82,13 @@ namespace MonoDevelop.GtkCore.GuiBuilder
 		{
 			yield return typeof(Stetic.Wrapper.Widget).Assembly.Location;
 		}
-		
+
+		public virtual bool DeleteDynamicItem (ItemToolboxNode node)
+		{
+			//not implemented
+			return false;
+		}
+
 		public event EventHandler ItemsChanged;
 	}
 	

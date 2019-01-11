@@ -152,8 +152,17 @@ namespace MonoDevelop.DesignerSupport
 		
 		public void RemoveUserItem (ItemToolboxNode node)
 		{
-			Configuration.ItemList.Remove (node);
-			SaveConfiguration ();
+			if (Configuration.ItemList.Contains (node)) {
+				Configuration.ItemList.Remove (node);
+				SaveConfiguration ();
+			} else {
+				//we need check in the dynamic providers
+				foreach (var prov in dynamicProviders) {
+					if (prov.DeleteDynamicItem (node)) {
+						break;
+					}
+				}
+			}
 			OnToolboxContentsChanged ();
 		}
 		

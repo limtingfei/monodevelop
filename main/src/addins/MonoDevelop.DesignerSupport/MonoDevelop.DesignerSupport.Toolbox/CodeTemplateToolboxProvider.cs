@@ -58,7 +58,9 @@ namespace MonoDevelop.DesignerSupport.Toolbox
 				};
 			}
 		}
-		
+
+		public bool DeleteDynamicItem (ItemToolboxNode node) => false;
+
 		public event EventHandler ItemsChanged {
 			add { CodeTemplateService.TemplatesChanged += value; }
 			remove { CodeTemplateService.TemplatesChanged -= value; }

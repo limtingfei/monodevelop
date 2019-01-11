@@ -3393,6 +3393,8 @@ namespace MonoDevelop.SourceEditor
 			return TextEditor.GetLineHeight (line);
 		}
 
+		public bool DeleteDynamicItem (ItemToolboxNode node) => ClipboardRingService.DeleteItem (node);
+
 		public bool HasFocus {
 			get {
 				return this.TextEditor.HasFocus;
